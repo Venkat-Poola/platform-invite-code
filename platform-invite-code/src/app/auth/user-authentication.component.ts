@@ -23,7 +23,7 @@ export class UserAuthenticationComponent implements OnInit {
 
     
 
-    alert(email.value + " " + password.value );
+    console.log(email.value + " " + password.value );
     
     const authInfo = {
       username: email.value,
@@ -32,24 +32,23 @@ export class UserAuthenticationComponent implements OnInit {
 
     
 
-    alert(authInfo);
-    alert("calling signin function"); 
+    console.log(authInfo);
+    console.log("calling signin function"); 
 
     Auth.signIn(authInfo).then( user => { 
-      alert("sign in successful");
-      alert(JSON.stringify(user));
+      console.log("sign in successful");
+      console.log(JSON.stringify(user));
+      console.log(JSON.stringify(user));
       this.user = JSON.stringify(user);  
+     
       this.route.navigate(['/dashboard'])
     })
     .catch(err => alert(err.message));
-  
-
-   // Auth.signIn(authInfo).then(user => {
-  //    console.log(user);
-   //   alert(user);
-   //   this.route.navigate(['/dashboard'])
-  //  })
-    //  .catch(err => console.log(err));
 
   }  
+
+  clear(email: HTMLInputElement, password: HTMLInputElement ) {
+    email.value='';
+    password.value='';
+  }
 }

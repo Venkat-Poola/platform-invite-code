@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { UserAuthenticationComponent } from './auth/user-authentication.component';
 import { DashboardComponent } from './dashboard/dashboard.component'; 
 
+import  { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
