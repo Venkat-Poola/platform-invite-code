@@ -14,3 +14,42 @@
     justify-content: center;
 }
 
+.footer {
+    position: fixed;
+    size: inherit;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: darkblue;
+    color: white;
+    text-align: left;
+  }
+  .social-icon {
+    color: #fff;
+  }
+  
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+  
+  }
+  
+  
+  .fa:hover {
+    opacity: 0.7;
+}
+.fa-twitter {
+  
+  color: white;
+}
+.fa-youtube {
+  
+  color: white;
+}
+.fa-linkedin {
+ 
+  color: white;
+}
