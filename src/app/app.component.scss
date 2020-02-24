@@ -6,3 +6,13 @@ a.nav-link:hover {text-decoration: underline;
 
 
 
+.footer {
+  position: fixed;
+  size: inherit;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: darkblue;
+  color: white;
+  text-align: left;
+}

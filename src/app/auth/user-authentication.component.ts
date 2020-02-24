@@ -13,7 +13,7 @@ export class UserAuthenticationComponent implements OnInit {
     
   signstatus: string = 'signin' 
   user: string;  
-
+  invaliduser:string
   constructor( private route: Router) { } 
 
   ngOnInit() {
@@ -40,15 +40,18 @@ export class UserAuthenticationComponent implements OnInit {
       console.log(JSON.stringify(user));
       console.log(JSON.stringify(user));
       this.user = JSON.stringify(user);  
-     
+      this.invaliduser='';
       this.route.navigate(['/dashboard'])
     })
-    .catch(err => alert(err.message));
+    .catch(err => {
+      this.invaliduser="**Unable to login Please check Email/Password entered**";
+      console.error('Unable to login :', err)});
 
   }  
 
   clear(email: HTMLInputElement, password: HTMLInputElement ) {
     email.value='';
     password.value='';
+    this.invaliduser='';
   }
 }
