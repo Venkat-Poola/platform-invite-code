@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, Input, ɵPlayState } from "@angular/core";
+import { Component, OnInit, Injectable, Input, ɵPlayState, Directive } from "@angular/core";
 import { UserAuthenticationComponent } from '../auth/user-authentication.component';
 import { Router } from "@angular/router";
 import * as AWS from "aws-sdk";
@@ -19,7 +19,12 @@ import { catchError, map, tap } from 'rxjs/operators';
   styleUrls: ["./dashboard.component.scss"]
 })
 
+
+
+
+
 @Injectable()
+
 export class DashboardComponent implements OnInit {
 
   
@@ -35,10 +40,12 @@ export class DashboardComponent implements OnInit {
 
   
 
-  generateInviteCode(deviceId: HTMLInputElement) {
+  generateInviteCode(deviceId: HTMLInputElement,generateButton:HTMLButtonElement) {
 
    let inviteCodes = [];
    let tempData =[];
+   deviceId.disabled=true;
+   generateButton.disabled=true;
 
     let userPoolLogin = loginUserToUserPool('speddibhotla@fluidra.com', 'w80GB%ce');
     console.log("userpoollogin" + userPoolLogin);
@@ -65,7 +72,9 @@ export class DashboardComponent implements OnInit {
         this.errorInputField="";
       console.log("Poped out data from array",tempData)
       },
-      error: error => {this.errorInputField="** Unable to generate invite code,Please check entered Device Id/Serial No  **",
+      error: error => {this.errorInputField="** Unable to generate invite code,Please check entered Device Serial # **",
+      this.inviteCodeImage='',
+      this.inviteCodeString='',
       console.error('Error in fetching the Invite Code!', error)
     }
     });
@@ -146,6 +155,13 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/auth'])
   }
 
- 
+  clear(deviceId: HTMLInputElement,generateButton:HTMLButtonElement) {
+    deviceId.value='';
+    this.inviteCodeImage='';
+    this.inviteCodeString='';
+    this.errorInputField='';
+    deviceId.disabled=false;
+    generateButton.disabled=false;
+  }
 
 } 
