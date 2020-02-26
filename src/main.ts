@@ -21,11 +21,11 @@ import Amplify from 'aws-amplify';
 
 Amplify.configure({
   Auth: {
-    identityPoolId:'76fa3f59-1088-4529-a9ec-f052cab9a2c1',
-    identityPoolRegion:'us-west-2',
-    region: 'us-west-2',
-    userPoolId: 'us-west-2_rh1Ia1jf4',
-    userPoolWebClientId: '2jieblnjs6pm3ak7f0umrbpsch',
+    identityPoolId:'1edad152-a05b-4e63-9b4e-6285b0232ae7',
+    identityPoolRegion:'us-east-1',
+    region: 'us-east-1',
+    userPoolId: 'us-east-1_JnqMaTFMU',
+    userPoolWebClientId: '2k9trfr76q7p9i224uf31i9i4j',
     mandatorySignIn: true,
   } 
 });
